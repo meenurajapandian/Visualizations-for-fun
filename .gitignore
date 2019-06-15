@@ -1,4 +1,5 @@
 .ipynb_checkpoints/
+.idea/
 
 yelp_academic_dataset_user.csv
 yelp_academic_dataset_user.json

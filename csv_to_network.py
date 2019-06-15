@@ -19,7 +19,7 @@ with open('yelp_academic_dataset_user.csv', newline='') as f:
                     user = row[11]
                     for friend in friends:
                         G.add_edge(user, friend)
-
+                    print(row[0])
             else:
                     no_friends += 1
 
