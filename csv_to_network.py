@@ -1,7 +1,9 @@
 import csv
 import sys
 import networkx as nx
-
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
 
 csv.field_size_limit(sys.maxsize)
 
@@ -19,7 +21,6 @@ with open('yelp_academic_dataset_user.csv', newline='') as f:
                     user = row[11]
                     for friend in friends:
                         G.add_edge(user, friend)
-                    print(row[0])
             else:
                     no_friends += 1
 
@@ -27,9 +28,13 @@ with open('yelp_academic_dataset_user.csv', newline='') as f:
 
 
 print(G.number_of_nodes())
+#nx.write_graphml(G, "user_friends.graphml")
 
-G_largest = max(nx.connected_components(G), key=len)
+largest = max(nx.connected_components(G), key=len)
+L = G.subgraph(largest)
+print(L.number_of_nodes())
+print(L.number_of_edges())
 
-print(G_largest.number_of_nodes())
-
-print(line_count)
+fig = plt.figure()
+nx.draw(L, node_color='white', node_size=1500, edge_color='white')
+plt.savefig('first_try.png', facecolor='#000000')
