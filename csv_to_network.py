@@ -1,12 +1,9 @@
 import csv
 import sys
 import networkx as nx
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+
 
 csv.field_size_limit(sys.maxsize)
-
 line_count = 0
 no_friends = 0
 with_friends = 0
@@ -26,15 +23,7 @@ with open('yelp_academic_dataset_user.csv', newline='') as f:
 
             line_count += 1
 
+nx.write_gml(G,'user_friends.gml')
 
-print(G.number_of_nodes())
-#nx.write_graphml(G, "user_friends.graphml")
-
-largest = max(nx.connected_components(G), key=len)
-L = G.subgraph(largest)
-print(L.number_of_nodes())
-print(L.number_of_edges())
-
-fig = plt.figure()
-nx.draw(L, node_color='white', node_size=1500, edge_color='white')
-plt.savefig('first_try.png', facecolor='#000000')
+print("Number of nodes in the full graph: ", G.number_of_nodes())
+print("Number of edges in the full graph: ", G.number_of_edges())
