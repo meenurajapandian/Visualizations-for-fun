@@ -39,5 +39,16 @@ print("Average Clustering: ",nx.average_clustering(L))
 print("Transitivity: ", nx.transitivity(L))
 
 hist_weight = nx.degree_histogram(G)
+print("Maximum degree of the largest component: ", len(hist_weight))
+plt.figure()
 plt.hist(range(0,len(hist_weight)), len(hist_weight), weights=hist_weight)
 plt.savefig('first_try_histogram.png')
+
+del hist_weight
+
+degrees = nx.degree(L)
+plt.figure()
+plt.hist(degrees, bins=30)
+plt.savefig('second_try_histogram.png')
+
+del degrees
