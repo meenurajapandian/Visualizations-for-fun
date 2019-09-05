@@ -11,6 +11,8 @@ csv.field_size_limit(sys.maxsize)
 
 # Read the full network as G
 #G = nx.read_gml('user_friends.gml')
+
+
 G = nx.Graph()
 with open('yelp_academic_dataset_user.csv', newline='') as f:
     reader = csv.reader(f, delimiter=',')
