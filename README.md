@@ -5,7 +5,10 @@ Random visualization in python
 Cool stuff I found online:
 
 https://observablehq.com/@amal994/visualizing-unstructured-text
+
 https://columbiaviz.github.io/2019f_w4995/
+
+https://www.data-to-viz.com/poster.html#page-top
 
 IBM History flow: http://hint.fm/projects/historyflow/
 VisuWords: https://visuwords.com/
